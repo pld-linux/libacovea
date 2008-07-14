@@ -3,34 +3,41 @@ Name:		libacovea
 Version:	5.1.1
 Release:	1
 License:	GPL
-Group:		System Environment/Libraries
-BuildRequires:  libcoyotl-devel >= 3.1.0
-BuildRequires:	libevocosm >= 3.1.0
-URL:		http://www.coyotegulch.com/products/libcoyotl/index.html
-Source:		%{name}-%{version}.tar.gz
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
+Group:		Libraries
+URL:		http://www.coyotegulch.com/products/acovea/index.html
+Source0:	http://www.coyotegulch.com/distfiles/%{name}-%{version}.tar.gz
+# Source0-md5:  7fdc1ac67528c819cdaf9091eeee3833
+BuildRequires:	libcoyotl-devel >= 3.1.0
+BuildRequires:	libevocosm >= 3.1.
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-ACOVEA (Analysis of Compiler Options via Evolutionary Algorithm) implements a genetic algorithm to find the "best" options for compiling programs with the GNU Compiler Collection (GCC) C and C++ compilers. "Best", in this context, is defined as those options that produce the fastest executable program from a given source code. Acovea is a C++ framework that can be extended to test other programming languages and non-GCC compilers.
+ACOVEA (Analysis of Compiler Options via Evolutionary Algorithm)
+implements a genetic algorithm to find the "best" options for
+compiling programs with the GNU Compiler Collection (GCC) C and C++
+compilers. "Best", in this context, is defined as those options that
+produce the fastest executable program from a given source code.
+Acovea is a C++ framework that can be extended to test other
+programming languages and non-GCC compilers.
 
 %package devel
-Summary:        libacovea headers and documentation
-Group:          Development/Libraries
-Requires:       %{name} = %{version}-%{release}
+Summary:	libacovea headers and documentation
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 libacovea libraries headers and documentation.
 
 %package static
-Summary:        libacovea static libraries
-Group:          Development/Libraries
-Requires:       %{name} = %{version}-%{release}
+Summary:	libacovea static libraries
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
 
 %description static
 libacovea static libraries.
 
 %prep
-%setup
+%setup -q
 
 %build
 %configure
@@ -46,7 +53,7 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 0755)
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*
 
