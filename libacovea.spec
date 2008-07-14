@@ -6,7 +6,7 @@ License:	GPL
 Group:		Libraries
 URL:		http://www.coyotegulch.com/products/acovea/index.html
 Source0:	http://www.coyotegulch.com/distfiles/%{name}-%{version}.tar.gz
-# Source0-md5:  7fdc1ac67528c819cdaf9091eeee3833
+# Source0-md5:	e3bfa6b782205bad083ba58a8b882158
 BuildRequires:	libcoyotl-devel >= 3.1.0
 BuildRequires:	libevocosm >= 3.1.
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
