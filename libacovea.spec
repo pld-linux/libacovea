@@ -1,7 +1,7 @@
 Summary:	ACOVEA (Analysis of Compiler Options via Evolutionary Algorithm)
 Name:		libacovea
 Version:	5.1.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		Libraries
 URL:		http://www.coyotegulch.com/products/acovea/index.html
