@@ -1,0 +1,7 @@
+--- libacovea/Makefile.am~	2005-10-10 06:48:31.000000000 +0200
++++ libacovea/Makefile.am	2008-07-27 18:32:14.000000000 +0200
+@@ -16,3 +16,4 @@
+ library_include_HEADERS = $(h_sources)
+ 
+ DEFS=-I. -I$(srcdir)
++LIBS=-lexpat
