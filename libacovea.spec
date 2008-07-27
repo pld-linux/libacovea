@@ -11,7 +11,7 @@ Patch0:		%{name}-evocosm-latest.patch
 Patch1:		%{name}-libs.patch
 BuildRequires:	expat-devel
 BuildRequires:	libcoyotl-devel >= 3.1.0
-BuildRequires:	libevocosm >= 3.1.0
+BuildRequires:	libevocosm-devel >= 3.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
