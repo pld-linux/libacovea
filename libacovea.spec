@@ -7,8 +7,11 @@ Group:		Libraries
 URL:		http://www.coyotegulch.com/products/acovea/index.html
 Source0:	http://www.coyotegulch.com/distfiles/%{name}-%{version}.tar.gz
 # Source0-md5:	e3bfa6b782205bad083ba58a8b882158
+Patch0:		%{name}-evocosm-latest.patch
+Patch1:		%{name}-libs.patch
+BuildRequires:	expat-devel
 BuildRequires:	libcoyotl-devel >= 3.1.0
-BuildRequires:	libevocosm >= 3.1.
+BuildRequires:	libevocosm >= 3.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,8 +41,15 @@ libacovea static libraries.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p0
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
+
 %configure
 %{__make}
 
