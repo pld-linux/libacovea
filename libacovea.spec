@@ -1,7 +1,7 @@
 Summary:	ACOVEA (Analysis of Compiler Options via Evolutionary Algorithm)
 Name:		libacovea
 Version:	5.1.1
-Release:	3
+Release:	4
 License:	GPL
 Group:		Libraries
 URL:		http://www.coyotegulch.com/products/acovea/index.html
@@ -9,6 +9,8 @@ Source0:	http://www.coyotegulch.com/distfiles/%{name}-%{version}.tar.gz
 # Source0-md5:	e3bfa6b782205bad083ba58a8b882158
 Patch0:		%{name}-evocosm-latest.patch
 Patch1:		%{name}-libs.patch
+Patch2:		modern-cxx-headers.patch
+Patch3:		stat-function-scope.patch
 BuildRequires:	expat-devel
 BuildRequires:	libcoyotl-devel >= 3.1.0
 BuildRequires:	libevocosm-devel >= 3.1.0
@@ -43,6 +45,8 @@ libacovea static libraries.
 %setup -q
 %patch -P0 -p1
 %patch -P1 -p0
+%patch -P2 -p1
+%patch -P3 -p1
 
 %build
 %{__libtoolize}
@@ -50,6 +54,7 @@ libacovea static libraries.
 %{__autoconf}
 %{__automake}
 
+CXXFLAGS="%{rpmcxxflags} -D_GLIBCXX_USE_CXX11_ABI=0" \
 %configure
 %{__make}
 

@@ -4,4 +4,4 @@
  library_include_HEADERS = $(h_sources)
  
  DEFS=-I. -I$(srcdir)
-+LIBS=-lexpat
++LIBS=-lexpat -levocosm -lcoyotl -lbrahe

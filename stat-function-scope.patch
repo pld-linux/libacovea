@@ -1,0 +1,13 @@
+--- libacovea-5.1.1/libacovea/acovea.cpp.orig	2008-05-30 20:55:48.000000000 -0600
++++ libacovea-5.1.1/libacovea/acovea.cpp	2026-03-10 11:23:00.000000000 +0000
+@@ -44,6 +44,7 @@
+ #include <unistd.h>
+ #include <sys/types.h>
+ #include <sys/wait.h>
++#include <sys/stat.h>
+ 
+ #include <vector>
+ #include <cstring>
+@@ -1215 +1216 @@
+-            stat(temp_name.c_str(),&stats);
++            ::stat(temp_name.c_str(),&stats);
